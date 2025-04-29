@@ -7,6 +7,7 @@ const images = [
   './img2.jpg',
   './img3.jpg',
   './img4.jpg',
+  './img5.png',
 ];
 
 export function MainBanner() {
@@ -31,7 +32,7 @@ export function MainBanner() {
   }, []);
 
   return (
-    <section className="relative w-full h-[400px] overflow-hidden">
+    <section className="relative w-[1200px] h-[420px] overflow-hidden items-center justify-center mx-auto mt-4 mb-4 bg-gray-100"> 
       <div
         className="w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-200"
         style={{ backgroundImage: `url(${images[current]})` }}
