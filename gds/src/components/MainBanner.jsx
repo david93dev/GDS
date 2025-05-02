@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 const images = [
   './img1.jpg',
@@ -11,29 +10,36 @@ const images = [
 
 export function MainBanner() {
   const [current, setCurrent] = useState(0);
+  const [fade, setFade] = useState(true);
 
-  // Avança para a próxima imagem
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
+    setFade(false); // Desativa o fade antes de trocar
+    setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+      setFade(true); // Ativa o fade novamente
+    }, 100); // Pequeno delay para aplicar transição
   };
 
-  // Volta para a imagem anterior
   const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+    setFade(false);
+    setTimeout(() => {
+      setCurrent((prev) => (prev - 1 + images.length) % images.length);
+      setFade(true);
+    }, 100);
   };
 
-  // Troca automática a cada 3 segundos
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 50000);
+    }, 10000); // 10 segundos
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative w-full h-[520px] overflow-hidden items-center justify-center mx-auto  mb-4 bg-gray-100"> 
+    <section className="relative w-full h-[450px] overflow-hidden mx-auto mb-4 bg-gray-100 shadow-lg">
+      {/* Imagem com transição de opacidade suave */}
       <div
-        className="w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-200"
+        className={`w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-[10000ms] ${fade ? 'opacity-100' : 'opacity-0'}`}
         style={{ backgroundImage: `url(${images[current]})` }}
       ></div>
 
@@ -42,7 +48,7 @@ export function MainBanner() {
         onClick={prevSlide}
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80 transition"
       >
-        <IoIosArrowBack />
+        <IoIosArrowBack size={24} />
       </button>
 
       {/* Botão Próximo */}
@@ -50,8 +56,18 @@ export function MainBanner() {
         onClick={nextSlide}
         className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-80 transition"
       >
-        <IoIosArrowForward />
+        <IoIosArrowForward size={24} />
       </button>
+
+      {/* Indicadores de slide */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`h-[4px] w-8 rounded-full transition-all duration-300 ${index === current ? 'bg-white' : 'bg-white/50'}`}
+          ></div>
+        ))}
+      </div>
     </section>
   );
 }

@@ -1,6 +1,6 @@
 export function Products() {
   return (
-    <section className="relative w-full h-screen items-center justify-center mx-auto bg-gray-100">
+    <section className="relative w-full h-screen items-center justify-center mx-auto bg-gray-100 my-32 ">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Nossos Produtos e Serviços</h1>
         <p className="text-lg text-gray-600">

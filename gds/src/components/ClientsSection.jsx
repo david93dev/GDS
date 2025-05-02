@@ -1,6 +1,6 @@
 export function ClientsSection() {
   return (
-    <section className="bg-gray-100 py-16 w-full mb-32">
+    <section className="bg-gray-100 py-16 w-full my-32">
       <div className="max-w-6xl mx-auto text-center px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-12">
           Conheça alguns de nossos clientes

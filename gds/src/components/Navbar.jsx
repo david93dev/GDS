@@ -6,18 +6,22 @@ export function Navbar() {
 
   return (
     <header className="bg-gray-900 text-white shadow-md top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center p-2">
         {/* Logo */}
         <div className="flex items-center">
-          <img src="./logo4.png" alt="Logo" className="h-16 w-auto" />
+          <img src="./logo8.png" alt="Logo" className="h-24 w-auto" />
+          <div className="flex flex-col justify-center ml-1">
+          <span className="text-2xl font-semibold">GDS Informática</span>
+          <p>Qualidade e eficiência em tudo que faz </p>
+          </div>
         </div>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex space-x-8">
-          <a href="#" className="hover:text-gray-300 transition">Home</a>
-          <a href="#" className="hover:text-gray-300 transition">Serviços</a>
-          <a href="#" className="hover:text-gray-300 transition">Sobre nós</a>
-          <a href="#" className="hover:text-gray-300 transition">Contato</a>
+          <a href="#" className="hover:text-gray-300 transition hover:underline">Home</a>
+          <a href="#" className="hover:text-gray-300 transition hover:underline">Serviços</a>
+          <a href="#" className="hover:text-gray-300 transition hover:underline">Sobre nós</a>
+          <a href="#" className="hover:text-gray-300 transition hover:underline">Contato</a>
         </nav>
 
         {/* Mobile Toggle Button */}

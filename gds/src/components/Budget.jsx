@@ -2,7 +2,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export function Budget() {
   return (
-    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center mb-32 bg-gray-100">
+    <section className="relative w-full h-screen overflow-hidden flex items-center justify-center my-32 bg-gray-100">
       {/* Imagem de fundo */}
       <div
         className="absolute inset-0 bg-cover bg-top bg-fixed bg-no-repeat"
